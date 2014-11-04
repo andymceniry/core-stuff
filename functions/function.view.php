@@ -13,9 +13,9 @@ function view($data, $hidden = 0) {
 
     if ($type == 'string') {
         json_decode($data);
-        #if (json_last_error() == JSON_ERROR_NONE) {
-            #$type = 'json';
-        #}
+        if (function_exists('json_last_error') AND json_last_error() == JSON_ERROR_NONE) {
+            $type = 'json';
+        }
     }
 
     if ($type == 'string') {
