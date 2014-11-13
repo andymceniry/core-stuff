@@ -1,6 +1,7 @@
 <?php
 
-function listdir($dir) {
+function listdir($dir)
+{
 
     //  invalid directory
     if (!is_dir($dir) OR !$handle = opendir($dir)) {
@@ -26,7 +27,7 @@ function listdir($dir) {
 
     closedir($handle);
     return $dir_info;
-    
+
 }
 
 ?>

@@ -109,8 +109,8 @@ if (!function_exists('array_column')) {
         }
 
         return $resultArray;
+
     }
 
 }
-
 ?>

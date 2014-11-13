@@ -15,5 +15,6 @@ function arrayGroupByField($aaData, $sField, $bKeepField = true)
         $aaReturnData[$key][] = $aItem;
     }
     return $aaReturnData;
+
 }
 ?>

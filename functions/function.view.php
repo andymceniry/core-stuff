@@ -1,11 +1,12 @@
 <?php
 
-function view($data, $hidden = 0) {
+function view($data, $hidden = 0)
+{
 
     $sPreStyles = 'background:#d4d4d4;padding:10px;font-size:90%;';
-    
+
     $type = 'unknown';
-    
+
     $type = is_bool($data) ? 'bool' : $type;
     $type = is_string($data) ? 'string' : $type;
     $type = is_array($data) ? 'array' : $type;
@@ -34,25 +35,25 @@ function view($data, $hidden = 0) {
         }
 
     }
-  
+
     echo $hidden == 0 ? '<pre style="' . $sPreStyles . '">' : "\n<!--\n";
-    
+
     switch($type) {
-    
-        case'array':
-        case'object':
+
+        case 'array':
+        case 'object':
             echo str_replace('  ', '    ', var_export($data, TRUE));
             break;
 
-        case'string':
+        case 'string':
             echo $data;
             break;
 
-        case'bool':
+        case 'bool':
             echo $data == true ? 'true' : 'false';
             break;
 
-        case'SQL':
+        case 'SQL':
             $newLine = $hidden == 0 ? "<br/>" : "\n";
             $data = trim($data);
             $data = str_replace(array("\r", "\n"), '', $data);
@@ -71,7 +72,7 @@ function view($data, $hidden = 0) {
             echo $data;
             break;
 
-        case'json':
+        case 'json':
             $result      = '';
             $pos         = 0;
             $strLen      = strlen($data);
@@ -81,33 +82,22 @@ function view($data, $hidden = 0) {
             $outOfQuotes = true;
 
             for ($i = 0; $i < $strLen; $i++) {
-                // Grab the next character in the string
                 $char = substr($data, $i, 1);
-                // Are we inside a quoted string?
                 if ($char == '"' && $prevChar != '\\') {
                     $outOfQuotes = !$outOfQuotes;
-                }
-                // If this character is the end of an element,
-                // output a new line and indent the next line
-                else if (($char == '}' || $char == ']') && $outOfQuotes) {
+                } elseif (($char == '}' || $char == ']') && $outOfQuotes) {
                     $result .= $newLine;
                     $pos--;
                     for ($j = 0; $j < $pos; $j++) {
                         $result .= $indentStr;
                     }
-                }
-                // eat all non-essential whitespace in the input as we do our own here and it would only mess up our process
-                else if ($outOfQuotes && false !== strpos(" \t\r\n", $char)) {
+                } elseif ($outOfQuotes && false !== strpos(" \t\r\n", $char)) {
                     continue;
                 }
-                // Add the character to the result string
                 $result .= $char;
-                // always add a space after a field colon:
                 if ($char == ':' && $outOfQuotes) {
                     $result .= ' ';
                 }
-                // If the last character was the beginning of an element,
-                // output a new line and indent the next line
                 if (($char == ',' || $char == '{' || $char == '[') && $outOfQuotes) {
                     $result .= $newLine;
                     if ($char == '{' || $char == '[') {
@@ -119,13 +109,13 @@ function view($data, $hidden = 0) {
                 }
                 $prevChar = $char;
             }
-            echo $result;            
+            echo $result;
             break;
-            
+
     }  //  end switch
-    
+
     echo $hidden == 0 ? '</pre>' : "\n-->\n";
-    
+
 }
 
 ?>

@@ -1,6 +1,7 @@
 <?php
 
-function o2a($d) {
+function object2array($d)
+{
     if (is_object($d)) {
         $d = get_object_vars($d);
     }
@@ -9,6 +10,6 @@ function o2a($d) {
     } else {
         return $d;
     }
-}
 
+}
 ?>

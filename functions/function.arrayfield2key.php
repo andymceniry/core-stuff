@@ -7,6 +7,6 @@ function arrayField2Key($aaArray, $field)
         $aReturnArray[$aArray[$field]] = $aArray;
     }
     return $aReturnArray;
-}
 
+}
 ?>

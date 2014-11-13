@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<demoFile>
+
+    <myprefs>
+
+        <animals desc="just some animals">
+            <animal type="dog">
+                <name>Jimbo</name>
+                <breed appearance="Black and White">Labrador</breed>
+            </animal>
+            <animal type="cat">
+                <name>Misty</name>
+                <breed appearance="Disctinctive">Naughty Torty</breed>
+            </animal>
+            <animal type="fish">
+                <name>Deaton</name>
+                <breed>Longhorn Cowfish</breed>
+            </animal>
+        </animals>
+
+        <foods>
+            <best>Chilli Con Carne</best>
+            <worst>Anything with Cheese</worst>
+        </foods>
+
+    </myprefs>
+
+</demoFile>

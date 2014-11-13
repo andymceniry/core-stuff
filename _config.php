@@ -21,6 +21,6 @@ $cfg['include_path'] .= $cfg['PS'] . $cfg['frameworks'];
 ini_set('include_path', $cfg['include_path']);
 
 //  include core files
-include_once('functions/_import.php');
+include_once 'functions/_import.php';
 
 ?>
