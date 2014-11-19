@@ -7,10 +7,11 @@ function view($data, $hidden = 0)
 
     $type = 'unknown';
 
-    $type = is_bool($data) ? 'bool' : $type;
-    $type = is_string($data) ? 'string' : $type;
     $type = is_array($data) ? 'array' : $type;
+    $type = is_bool($data) ? 'bool' : $type;
+    $type = is_int($data) ? 'int' : $type;
     $type = is_object($data) ? 'object' : $type;
+    $type = is_string($data) ? 'string' : $type;
 
     if ($type == 'string') {
         json_decode($data);
@@ -45,6 +46,7 @@ function view($data, $hidden = 0)
             echo str_replace('  ', '    ', var_export($data, TRUE));
             break;
 
+        case 'int':
         case 'string':
             echo $data;
             break;
