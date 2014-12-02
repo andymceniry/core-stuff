@@ -14,5 +14,5 @@ $oTag->defaultTags = array(
 
 $oTag->addTrackTags('existing_filename', array('title' => 'Track Title', 'artist' => array('Artist')));
 
-$oTag->update_tracks();
+$oTag->updateTracks();
 ?>
