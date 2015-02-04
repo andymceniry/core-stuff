@@ -13,7 +13,7 @@ function view($data, $hidden = 0)
     $type = is_object($data) ? 'object' : $type;
     $type = is_string($data) ? 'string' : $type;
 
-    if ($type == 'string') {
+    if ($type == 'string' AND (substr($data, 0, 1) == '{' OR substr($data, 0, 1) == '[')) {
         json_decode($data);
         if (function_exists('json_last_error') AND json_last_error() == JSON_ERROR_NONE) {
             $type = 'json';
