@@ -37,6 +37,30 @@ function view($data, $hidden = 0)
 
     }
 
+    //  colour code
+    switch($type) {
+
+        case 'string':
+            $col = '#008';
+            break;
+
+        case 'int':
+            $col = '#F00';
+            break;
+
+        case 'bool':
+            $col = '#808';
+            break;
+
+        default:
+            $col = '#333';
+            break;
+    }
+
+    if ($style_type == 'default') {
+        $sPreStyles .= 'color:'.$col.';';
+    }
+
     echo $hidden == 0 ? '<pre style="' . $sPreStyles . '">' : "\n<!--\n";
 
     switch($type) {
