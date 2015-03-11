@@ -1,6 +1,6 @@
 <?php
 
-function view($data, $hidden = 0)
+function view($data, $hidden = 0, $style_type = 'default')
 {
 
     $sPreStyles = 'background:#d4d4d4;padding:10px;font-size:90%;';
@@ -10,6 +10,7 @@ function view($data, $hidden = 0)
     $type = is_array($data) ? 'array' : $type;
     $type = is_bool($data) ? 'bool' : $type;
     $type = is_int($data) ? 'int' : $type;
+    $type = is_float($data) ? 'float' : $type;
     $type = is_object($data) ? 'object' : $type;
     $type = is_string($data) ? 'string' : $type;
 
@@ -45,6 +46,7 @@ function view($data, $hidden = 0)
             break;
 
         case 'int':
+        case 'float':
             $col = '#F00';
             break;
 
@@ -71,6 +73,7 @@ function view($data, $hidden = 0)
             break;
 
         case 'int':
+        case 'float':
         case 'string':
             echo $data;
             break;

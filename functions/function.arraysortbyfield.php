@@ -1,21 +1,29 @@
 <?php
 
-function arraySortByField($aArrayToSort, $sKeyToSort, $sDir = 'a')
+function arraySortByField($aArrayToSort, $sKeyToSort, $sDir = 'a', $bIsNumber = false)
 {
-    for ($i = 0; $i < count($aArrayToSort); $i++) {
-        if (!array_key_exists($sKeyToSort, $aArrayToSort[$i])) {
+    foreach ($aArrayToSort as $key => $data) {
+        if (!array_key_exists($sKeyToSort, $aArrayToSort[$key])) {
             return $aArrayToSort;
         }
-        $aArrayTmp[$i] = $aArrayToSort[$i][$sKeyToSort] . '----' . $i;
+        $aArrayTmp[$key] = $aArrayToSort[$key][$sKeyToSort] . '----' . $key;
     }
-    if ($sDir == 'a') {
-        asort($aArrayTmp);
+    if ($bIsNumber == false) {
+        if ($sDir == 'a') {
+            asort($aArrayTmp);
+        } else {
+            rsort($aArrayTmp);
+        }
     } else {
-        rsort($aArrayTmp);
+        natsort($aArrayTmp);
+        if ($sDir != 'a') {
+            $aArrayTmp = array_reverse($aArrayTmp);
+        }
     }
+
     foreach ($aArrayTmp as $key => $val) {
         $aArrayToSortTmp = explode('----', $val);
-        $aSortedArray[] = $aArrayToSort[$aArrayToSortTmp[1]];
+        $aSortedArray[$aArrayToSortTmp[1]] = $aArrayToSort[$aArrayToSortTmp[1]];
     }
     return $aSortedArray;
 
