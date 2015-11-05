@@ -54,7 +54,7 @@ class mp3tagedit
                 }
             }
 
-            $aaTagData['filename'] = $aaTagData['title'][0] .'.mp3';
+            $aaTagData['filename'] = $aaTagData['artist'][0] . ' - ' . $aaTagData['title'][0] .'.mp3';
 
             $aaTagData['track'] = array($i);
 

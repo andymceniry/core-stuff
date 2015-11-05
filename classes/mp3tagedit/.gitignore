@@ -1,0 +1,10 @@
+# ignore a file by name
+# filename.ext
+
+# ignore a folder by name
+# foldername
+
+# ignore files by extension
+# *.ext
+
+tracks

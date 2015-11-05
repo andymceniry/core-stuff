@@ -1,0 +1,21 @@
+* { font-family:calibri; font-size:12px; }
+
+#calendar {  background:#ccc; width:800px; padding: 0 5px 5px 0; width:968px; margin:0 0 10px 0;}
+#calendar .month {  background:#aaa; padding:5px; margin:5px 0 0 5px; width:227px; display:inline-block; float:left; min-height:233px;}
+#calendar .week { zbackground:#f9f; padding:2px 0; }
+#calendar .week.week-days { zbackground:#f90; }
+#calendar .cell { background:#aaa; width:30px; line-height:25px; display:inline-block; text-align:center;}
+#calendar .date { background:#fff; }
+#calendar .past-date { background:#333; color:#888; }
+#calendar .week.week-days .cell { background:#117293; color:#ff6; }
+
+
+
+#calendarLI {  background:#ccc; width:800px; padding: 0 5px 5px 0; width:968px; margin:0 0 10px 0;}
+#calendarLI .month {  background:#aaa; padding:5px; margin:5px 0 0 5px; width:227px; display:inline-block; float:left; min-height:233px;}
+#calendarLI .week { zbackground:#f9f; padding:2px 0; }
+#calendarLI .week.week-days { zbackground:#f90; }
+#calendarLI .cell { background:#aaa; width:30px; line-height:25px; display:inline-block; text-align:center;}
+#calendarLI .date { background:#fff; }
+#calendarLI .past-date { background:#333; color:#888; }
+#calendarLI .week.week-days .cell { background:#117293; color:#ff6; }
